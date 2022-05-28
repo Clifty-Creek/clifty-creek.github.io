@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <head>
     <title>Clifty Creek Consulting</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -8,6 +10,14 @@
     <style>
         body {
             background-color: #eee;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        svg#clifty-logo {
+            width: 100%;
+            height: 100%;
+            margin: auto;
         }
 
         /* dark mode */
@@ -15,11 +25,6 @@
             body {
                 background-color: #333;
             }
-        }
-
-        svg#clifty-logo {
-            max-width: 100%;
-            max-height: 100%;
         }
     </style>
     <meta name="description" content="Clifty Creek Software Development Consulting">
@@ -51,19 +56,15 @@
     </svg>
 </body>
 <script>
-    function hello() {
-        let textColor = '#444444';
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            textColor = '#41FF00';
-        }
+    const darkModeMedia = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    function consoleGreeting() {
+        let isDark = darkModeMedia && darkModeMedia.matches;
+        let textColor = isDark ? '#41FF00' : '#444444';
         console.clear();
         console.log('%c👋 Hi there!', `font-size: 20pt; font-weight: bold; color: ${textColor};`);
         console.log('%cI see you\'re checkin\' out my source. That\'s cool. Here is a link to the git repo, if you were interested.', `font-size: 14pt; color: ${textColor};`);
-        // blue link
         console.log('%chttps://github.com/Clifty-Creek/clifty-creek.github.io', `font-size: 12pt; font-weight: bold; color: #0055ff;`);
     }
-    hello();
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        hello();
-    });
+    consoleGreeting();
+    darkModeMedia && darkModeMedia.addEventListener('change', event => consoleGreeting());
 </script>
