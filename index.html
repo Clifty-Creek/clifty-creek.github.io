@@ -1,7 +1,13 @@
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
 <head>
     <title>Clifty Creek Consulting</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" href="/favicon-192.png">
+    <link rel="mask-icon" href="/favicon.svg">
     <link rel="manifest" href="/manifest.webmanifest">
+    <meta content="/favicon-512.png" itemprop="image">
     <style>
         body {
             background-color: #eee;
@@ -47,3 +53,22 @@
         <path d="M880 370C920 370 950 340 950 300C950 260 920 230 880 230C840 230 810 260 810 300C810 340 840 370 880 370Z" />
     </svg>
 </body>
+<script>
+    function hello() {
+        let textColor = '#444444';
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            textColor = '#41FF00';
+        }
+        console.clear();
+        console.log('%c👋 Hi there!', `font-size: 20pt; font-weight: bold; color: ${textColor};`);
+        console.log('%cI see you\'re checkin\' out my source. That\'s cool. Here is a link to the git repo, if you were interested.', `font-size: 14pt; color: ${textColor};`);
+        // blue link
+        console.log('%chttps://github.com/Clifty-Creek/clifty-creek.github.io', `font-size: 12pt; font-weight: bold; color: #0055ff;`);
+    }
+    hello();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        hello();
+    });
+
+</script>
+</html>
